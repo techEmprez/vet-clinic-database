@@ -2,5 +2,5 @@
 
 CREATE TABLE animals (
     id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
-    name varchar(100)
+    name VARCHAR(250) NOT NULL,
 );
