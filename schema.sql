@@ -60,7 +60,7 @@ CREATE TABLE vets (
   PRIMARY KEY(id)
 );
 
--- create a many-to-many relationship table for species and vets
+-- create a many-to-many specializations Table to handle relationship
 CREATE TABLE specializations (
   species_id INT NOT NULL,
   vets_id INT NOT NULL,
@@ -68,3 +68,16 @@ CREATE TABLE specializations (
   CONSTRAINT fk_specializations_species FOREIGN KEY (species_id) REFERENCES  species(id),
   CONSTRAINT fk_specializations_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
 );
+
+-- many-to-many visits Table to handle relationship
+CREATE TABLE visits (
+  animals_id INT NOT NULL,
+  vets_id INT NOT NULL,
+  date_of_visit date NOT NULL,
+  PRIMARY KEY (animals_id, vets_id),
+  CONSTRAINT fk_visits_animals FOREIGN KEY (animals_id) REFERENCES  animals(id),
+  CONSTRAINT fk_visits_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
+);
+
+ALTER TABLE visits ADD COLUMN id SERIAL PRIMARY KEY;
+ALTER TABLE visits DROP CONSTRAINT visits_pkey;
