@@ -54,3 +54,22 @@ INSERT INTO vets (name, age, date_of_graduation) VALUES ('William Tatcher', 45, 
 INSERT INTO vets (name, age, date_of_graduation) VALUES ('Maisy Smith', 26, '2019-01-17');
 INSERT INTO vets (name, age, date_of_graduation) VALUES ('Stephanie Mendez', 64, '1981-05-04');
 INSERT INTO vets (name, age, date_of_graduation) VALUES ('Jack Harkness', 38, '2008-06-08');
+
+
+/* INSERT DATA FOR SPECIALIZATIONS */
+
+INSERT INTO specializations(species_id, vet_id) VALUES((SELECT id FROM species WHERE name = 'Pokemon'),
+
+-- William Tatcher is specialized in Pokemon.
+INSERT INTO specializations (species_id, vets_id) VALUES (1, 1);
+
+-- Stephanie Mendez is specialized in Digimon and Pokemon.
+INSERT INTO specializations (species_id, vets_id) VALUES (1, 2);
+INSERT INTO specializations (species_id, vets_id) VALUES (2, 2);
+
+-- Jack Harkness is specialized in Digimon.
+INSERT INTO specializations (species_id, vets_id) VALUES (2, 4);
+INSERT INTO specializations (species_id, vets_id) VALUES (
+  (SELECT id FROM species WHERE name = 'Digimon'), 
+  (SELECT id FROM vets WHERE name = 'Jack Harkness')
+);
