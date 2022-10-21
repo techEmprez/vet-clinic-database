@@ -45,3 +45,12 @@ UPDATE animals SET owner_id = 5 WHERE name='Angemon' OR name='Boarmon';
 -- id 3 = Bob owns Devimon and Plantmon.
 -- id 4 = Melody Pond owns Charmander, Squirtle, and Blossom.
 -- id 5 = Dean Winchester owns Angemon and Boarmon.
+
+
+/* JOINING-TABLES */
+
+/* INSERT DATA FOR VETS */
+INSERT INTO vets (name, age, date_of_graduation) VALUES ('William Tatcher', 45, '2000-04-23');
+INSERT INTO vets (name, age, date_of_graduation) VALUES ('Maisy Smith', 26, '2019-01-17');
+INSERT INTO vets (name, age, date_of_graduation) VALUES ('Stephanie Mendez', 64, '1981-05-04');
+INSERT INTO vets (name, age, date_of_graduation) VALUES ('Jack Harkness', 38, '2008-06-08');
