@@ -125,3 +125,17 @@ INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
   (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
   date '2021-05-04'
 );
+
+8.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Charmander'),
+  (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+  date '2021-02-24'
+);
+
+9.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Plantmon'),
+  (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+  date '2019-12-21'
+);
