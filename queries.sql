@@ -20,34 +20,42 @@ SELECT species, MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY species;
 SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
 
 
--- QUERY MULTIPLE TABLES
+/* QUERIES FOR JOIN MULTIPLE TABLES */
 
--- create a new table for owners
-CREATE TABLE owners(
-  id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
-  full_name VARCHAR(250) NOT NULL,
-  age INT NOT NULL,
-  PRIMARY KEY(id)
-);
+-- SELECT table1.column1, table2.column2...
+-- FROM table1
+-- INNER JOIN table2
+-- ON table1.common_field = table2.common_field
+-- WHERE table.column = 'value'
+-- GROUP BY table.column
+-- ORDER BY table1.column1, table2.column2;
 
--- create a new table for species
-CREATE TABLE species (
-  id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
-  name VARCHAR(250) NOT NULL,
-  PRIMARY KEY(id)
-);
+-- 1. What animals belong to Melody Pond?
+SELECT animals.name FROM animals INNER JOIN owners ON animals.owner_id = owners.id WHERE owners.full_name = 'Melody Pond';
 
+-- 2. List of all animals that are pokemon (their type is Pokemon).
+SELECT animals.name FROM animals INNER JOIN species ON animals.species_id = species.id WHERE species.name = 'Pokemon';
 
--- modify animals table 
+-- 3. List all owners and their animals
+SELECT owners.full_name,animals.name FROM owners LEFT JOIN animals ON owners.id = animals.owner_id;
 
--- remove the species column
-ALTER TABLE animals DROP COLUMN species;
+-- 4. How many animals are there per species?
+SELECT species.name, COUNT(animals.name) FROM animals INNER JOIN species ON animals.species_id = species.id GROUP BY species.name;
 
--- add a new column species_id to the animal table
-ALTER TABLE animals ADD COLUMN species_id INT;
+-- 5. List all Digimon owned by Jennifer Orwell
+SELECT animals.name FROM animals INNER JOIN owners ON animals.owner_id = owners.id WHERE owners.full_name = 'Jennifer Orwell';
 
-ALTER TABLE animals ADD CONSTRAINT fk_animals_species FOREIGN KEY (species_id) REFERENCES species(id);
+-- 6. List all animals owned by Dean Winchester that haven't tried to escape
+SELECT animals.name
+FROM animals
+INNER JOIN owners
+ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
 
--- add a new column owner_id to the animal table
-ALTER TABLE animals ADD COLUMN owner_id INT;
-ALTER TABLE animals ADD CONSTRAINT fk_animals_owners FOREIGN KEY (owner_id) REFERENCES owners(id);
+-- 7. Who owns the most animals?
+SELECT owners.full_name, COUNT(animals.name)
+FROM owners
+LEFT JOIN animals
+ON owners.id = animals.owner_id
+GROUP BY owners.full_name
+ORDER BY COUNT(animals.name) DESC;
