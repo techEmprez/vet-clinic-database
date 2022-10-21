@@ -59,3 +59,12 @@ CREATE TABLE vets (
   date_of_graduation date NOT NULL,
   PRIMARY KEY(id)
 );
+
+-- create a many-to-many relationship table for species and vets
+CREATE TABLE specializations (
+  species_id INT NOT NULL,
+  vets_id INT NOT NULL,
+  PRIMARY KEY(species_id, vets_id),
+  CONSTRAINT fk_specializations_species FOREIGN KEY (species_id) REFERENCES  species(id),
+  CONSTRAINT fk_specializations_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
+);
