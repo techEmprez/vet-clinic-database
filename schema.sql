@@ -47,3 +47,15 @@ ALTER TABLE animals ADD CONSTRAINT fk_animals_species FOREIGN KEY (species_id) R
 ALTER TABLE animals ADD COLUMN owner_id INT;
 
 ALTER TABLE animals ADD CONSTRAINT fk_animals_owners FOREIGN KEY (owner_id) REFERENCES owners(id);
+
+
+/* PROJECT - ADD "JOIN TABLE" FOR VISITS */
+
+-- VETS TABLE
+CREATE TABLE vets (
+  id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(250) NOT NULL,
+  age INT NOT NULL,
+  date_of_graduation date NOT NULL,
+  PRIMARY KEY(id)
+);
