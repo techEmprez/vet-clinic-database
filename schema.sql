@@ -53,30 +53,33 @@ ALTER TABLE animals ADD CONSTRAINT fk_animals_owners FOREIGN KEY (owner_id) REFE
 
 -- VETS TABLE
 CREATE TABLE vets (
-  id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
-  name VARCHAR(250) NOT NULL,
-  age INT NOT NULL,
-  date_of_graduation date NOT NULL,
-  PRIMARY KEY(id)
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(250) NOT NULL,
+    age INT NOT NULL,
+    date_of_graduation DATE NOT NULL,
+    PRIMARY KEY(id)
 );
 
 -- create a many-to-many specializations Table to handle relationship
 CREATE TABLE specializations (
-  species_id INT NOT NULL,
-  vets_id INT NOT NULL,
-  PRIMARY KEY(species_id, vets_id),
-  CONSTRAINT fk_specializations_species FOREIGN KEY (species_id) REFERENCES  species(id),
-  CONSTRAINT fk_specializations_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
+    id INT GENERATED ALWAYS AS IDENTITY,
+    species_id INT NOT NULL,
+    vet_id INT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (species_id) REFERENCES species (id),
+    FOREIGN KEY (vet_id) REFERENCES vets (id)
 );
 
 -- many-to-many visits Table to handle relationship
 CREATE TABLE visits (
-  animals_id INT NOT NULL,
-  vets_id INT NOT NULL,
-  date_of_visit date NOT NULL,
-  PRIMARY KEY (animals_id, vets_id),
-  CONSTRAINT fk_visits_animals FOREIGN KEY (animals_id) REFERENCES  animals(id),
-  CONSTRAINT fk_visits_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
+    id INT GENERATED ALWAYS AS IDENTITY,
+    animal_id INT NOT NULL,
+    vet_id INT NOT NULL,
+    date_of_visit DATE NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (animal_id) REFERENCES animals (id),
+    FOREIGN KEY (vet_id) REFERENCES vets (id)
+
 );
 
 ALTER TABLE visits ADD COLUMN id SERIAL PRIMARY KEY;
