@@ -77,8 +77,16 @@ INSERT INTO specializations (species_id, vets_id) VALUES (
 
 /* INSERT DATA FOR VISITS */
 
+1.
 INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
   (SELECT id from animals WHERE name = 'Agumon'),
   (SELECT id FROM vets WHERE name = 'William Tatcher'),
   '2020-05-24'
+);
+
+2. 
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id from animals WHERE name = 'Agumon'),
+  (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+  '2020-07-22'
 );
