@@ -161,3 +161,65 @@ INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
   (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
   date '2019-09-29'
 );
+
+13.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Angemon'),
+  (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+  date '2020-10-03'
+);
+
+14.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Angemon'),
+  (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+  date '2020-11-04'
+);
+
+15.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Boarmon'),
+  (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+  date '2019-01-24'
+);
+
+16.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Boarmon'),
+  (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+  date '2019-05-15'
+);
+
+17.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Boarmon'),
+  (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+  date '2020-02-27'
+);
+
+18.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Boarmon'),
+  (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+  date '2020-03-08'
+);
+
+19. 
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Blossom'),
+  (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+  date '2020-05-24'
+);
+
+20.
+INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (
+  (SELECT id FROM animals WHERE name = 'Blossom'),
+  (SELECT id FROM vets WHERE name = 'William Tatcher'),
+  date '2021-01-11'
+);
+
+-- change date_of_visit to from 2019-01-11 to 2021-01-11
+UPDATE visits SET date_of_visit = '2021-01-11' WHERE animals_id = 10 AND vets_id = 1;
+
+-- REMOVE ALL DATA FROM VISITS
+DELETE FROM visits;
