@@ -22,6 +22,11 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@techEmprez](https://twitter.com/techEmprez)
 - LinkedIn: [Choice Osobor](https://www.linkedin.com/in/choice-osobor/)
 
+👤 **Mahmoud Rizk**
+
+- GitHub: [@Elerqsousy](https://github.com/Elerqsousy)
+- LinkedIn: [Mahmoud (Riz) El Erqsousy](https://www.linkedin.com/in/mahmoud-rizk-elerqsousy/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
