@@ -83,3 +83,23 @@ SELECT vets.name AS vet_name, COUNT(*) FROM visits INNER JOIN vets ON vets.id = 
 -- speciality maisy smith consider getting
 SELECT vets.name AS vet_name, species.name AS species_name, COUNT(species.name) FROM visits LEFT JOIN animals ON animals.id = visits.animal_id INNER JOIN vets ON vets.id = visits.vet_id INNER JOIN species ON species.id = animals.species_id WHERE vets.name = 'Maisy Smith' GROUP BY vets.name, species.name ORDER BY COUNT DESC LIMIT 1;
 Footer
+
+/* PROJECT DAY 1 WEEK 1 - database performance audit */
+-- Original query
+SELECT COUNT(*) FROM visits where animal_id = 4;
+-- Modified query
+CREATE INDEX animals_visit_index ON visits(animal_id);
+SELECT COUNT(*) FROM visits where animal_id = 4;
+
+-- Original query
+SELECT * FROM visits where vet_id = 2;
+-- Modified query
+CREATE INDEX animal_visits ON visits(vet_id);
+SELECT animal_id FROM visits where vet_id = 2;
+
+
+-- Original query
+SELECT * FROM owners where email = 'owner_18327@mail.com';
+-- Modified query
+CREATE INDEX animal_owner_emails ON owner(email);
+SELECT * FROM owners where id = 18335;
