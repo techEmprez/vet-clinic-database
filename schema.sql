@@ -84,3 +84,8 @@ CREATE TABLE visits (
 
 ALTER TABLE visits ADD COLUMN id SERIAL PRIMARY KEY;
 ALTER TABLE visits DROP CONSTRAINT visits_pkey;
+
+
+/* PROJECT PERFOMANCE AUDIT */
+ -- Add email to owners table 
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
