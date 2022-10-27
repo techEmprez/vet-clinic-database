@@ -19,3 +19,11 @@ CREATE TABLE medical_histories (
     REFERENCES patients (id)
     ON DELETE CASCADE
 );
+
+-- Table for treatments
+CREATE TABLE treatments (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    type VARCHAR(250) NOT NULL,
+    name VARCHAR(250) NOT NULL,
+    PRIMARY KEY(id) 
+);
