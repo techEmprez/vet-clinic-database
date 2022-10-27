@@ -14,7 +14,9 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## Schema Diagram
 
-<iframe width="100%" height="500px" style="box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); border-radius:15px;" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Embedded DrawSQL IFrame" frameborder="0" src="https://drawsql.app/teams/ruby-1/diagrams/schema-diagram/embed"></iframe>
+[Live view](https://drawsql.app/teams/ruby-1/diagrams/schema-diagram/embed)
+
+<img width="947" alt="image" src="https://user-images.githubusercontent.com/43815180/198389668-ac4e990b-4b74-42c9-8b9a-a4d36a151603.png">
 
 ## Built with
 
