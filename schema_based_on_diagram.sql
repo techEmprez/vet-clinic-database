@@ -27,3 +27,16 @@ CREATE TABLE treatments (
     name VARCHAR(250) NOT NULL,
     PRIMARY KEY(id) 
 );
+
+-- Table for Invoices
+CREATE TABLE invoices (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    total_amount DECIMAL NOT NULL,
+    generated_at TIMESTAMP NOT NULL,
+    payed_at TIMESTAMP NOT NULL,
+    medical_history_id INT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(medical_history_id)
+    REFERENCES medical_histories (id)
+    ON DELETE CASCADE
+);
