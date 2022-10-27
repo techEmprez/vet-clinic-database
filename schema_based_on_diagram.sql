@@ -58,3 +58,17 @@ CREATE TABLE invoice_items (
     ON DELETE CASCADE 
 );
 
+-- Join Many to Many Relationship Table
+CREATE TABLE medical_histories_treatments (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    medical_history_id INT NOT NULL,
+    treatment_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (medical_history_id)
+    REFERENCES medical_histories (id)
+    ON DELETE CASCADE,
+    FOREIGN KEY(treatment_id)
+    REFERENCES treatments (id)
+    ON DELETE CASCADE 
+);
+
